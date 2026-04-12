@@ -1,4 +1,4 @@
-import { Box, MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -7,9 +7,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2 text-gray-900 dark:text-white">
-              <Box className="w-6 h-6" />
-              <span className="text-xl font-bold tracking-tight">Naijahome Hub</span>
+            <div className="flex items-center gap-2">
+              <img src="/images/LUXURY DWELLING ESTATES AND PROPERTY.png" alt="Naijahome Hub" className="h-16 w-auto object-contain rounded-[24px]" />
             </div>
             <p className="text-gray-500 font-medium leading-relaxed max-w-xs text-sm">
               Nigeria's premier real estate platform connecting you with luxury properties and expert agents.
@@ -92,7 +91,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-gray-100 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 font-medium text-sm">
-            © {new Date().getFullYear()} Naijahome Hub. All rights reserved.
+            © {new Date().getFullYear()} LUXURY DWELLING ESTATES AND PROPERTY. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm font-medium text-gray-400">
             <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>

@@ -144,7 +144,7 @@ export default function Hero() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => window.open('https://wa.me/2349012949580?text=Hello, I am interested in your properties. Could you please help me find my ideal home?', '_blank')}
-              className="bg-white border border-gray-200 dark:bg-transparent dark:border-gray-700 hover:border-gray-300 hover:bg-gray-50 text-[#111827] dark:text-white px-8 sm:px-10 py-3 sm:py-3.5 rounded-[8px] font-semibold transition-colors text-[14px] sm:text-[15px] w-full sm:w-auto"
+              className="bg-white border border-gray-200 dark:bg-white/5 dark:border-white/10 hover:border-gray-300 hover:bg-gray-50 dark:hover:border-white/20 dark:hover:bg-white/10 text-[#111827] dark:text-white px-8 sm:px-10 py-3 sm:py-3.5 rounded-[8px] font-semibold transition-colors text-[14px] sm:text-[15px] w-full sm:w-auto"
             >
               Talk To An Agent
             </motion.button>

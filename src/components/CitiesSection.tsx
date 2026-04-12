@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useAppStore } from '../store/useAppStore';
 
 export default function CitiesSection() {
+  const { setLocation } = useAppStore();
+
   const cities = [
     {
       id: 1,
@@ -22,6 +25,14 @@ export default function CitiesSection() {
       image: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&q=80&w=800"
     }
   ];
+
+  const handleCityClick = (cityName: string) => {
+    setLocation(cityName);
+    const element = document.getElementById('properties');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="py-24 bg-white dark:bg-[#0a0a0f] transition-colors duration-500">
@@ -54,6 +65,7 @@ export default function CitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              onClick={() => handleCityClick(city.name)}
               className="relative h-[400px] rounded-2xl overflow-hidden group cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent z-10" />

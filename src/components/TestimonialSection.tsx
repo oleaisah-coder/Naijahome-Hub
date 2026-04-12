@@ -9,7 +9,7 @@ export default function TestimonialSection() {
         </div>
         
         <h2 className="text-3xl md:text-5xl font-sans font-bold text-white leading-tight mb-12">
-          "Naijahome is the easiest way to compare rentals or get official metrics. We use it internally inside our workflow constantly."
+          "LUXURY DWELLING ESTATES AND PROPERTY is the easiest way to compare rentals or get official metrics. We use it internally inside our workflow constantly."
         </h2>
 
         <div className="flex flex-col items-center gap-4">

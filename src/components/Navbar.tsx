@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun, Gem } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useAppStore } from '../store/useAppStore';
 
 export default function Navbar() {
@@ -53,11 +53,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2.5 group transition-colors text-black dark:text-white shrink-0">
-            <div className="text-black dark:text-white">
-              <Gem className="w-5 h-5" />
-            </div>
-            <span className="text-[18px] font-bold tracking-tight">Naijahome Hub</span>
+          <a href="#hero" className="flex items-center gap-2.5 group transition-colors shrink-0">
+            <img src="/images/LUXURY DWELLING ESTATES AND PROPERTY.png" alt="Naijahome Hub" className="h-20 w-auto object-contain rounded-[24px]" />
           </a>
 
           {/* Desktop Nav */}
