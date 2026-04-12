@@ -1,0 +1,10 @@
+
+> naijahome-hub@0.0.0 build
+> tsc -b && vite build
+
+src/components/Badge.tsx(1,10): error TS1484: 'ReactNode' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/Footer.tsx(1,15): error TS2305: Module '"lucide-react"' has no exported member 'Facebook'.
+src/components/Footer.tsx(1,25): error TS2305: Module '"lucide-react"' has no exported member 'Twitter'.
+src/components/Footer.tsx(1,34): error TS2305: Module '"lucide-react"' has no exported member 'Instagram'.
+src/components/Footer.tsx(1,45): error TS2305: Module '"lucide-react"' has no exported member 'Linkedin'.
+src/components/Hero.tsx(2,10): error TS6133: 'Search' is declared but its value is never read.

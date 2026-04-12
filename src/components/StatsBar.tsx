@@ -1,44 +1,30 @@
-import { Building, Users, MapPinned } from "lucide-react";
+import { motion } from 'framer-motion';
+import { stats } from '../data';
 
 export default function StatsBar() {
-  const stats = [
-    {
-      icon: Building,
-      value: "10K+",
-      label: "Properties",
-    },
-    {
-      icon: Users,
-      value: "5K+",
-      label: "Happy Customers",
-    },
-    {
-      icon: MapPinned,
-      value: "50+",
-      label: "Cities Covered",
-    },
-  ];
-
   return (
-    <div className="bg-[#1a2b4a] py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-12 sm:py-20 bg-gray-50/50 dark:bg-[#0a0a0f] transition-colors duration-500">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center gap-4"
+            <motion.div
+              key={stat.id}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white dark:bg-[#16161a] rounded-xl p-4 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 dark:border-white/5"
             >
-              <div className="bg-[#c9a227]/20 p-4 rounded-full">
-                <stat.icon className="w-8 h-8 text-[#c9a227]" />
+              <div className="text-xl sm:text-2xl lg:text-4xl font-sans font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
+                {stat.value}
               </div>
-              <div className="text-left">
-                <p className="text-3xl font-bold text-white">{stat.value}</p>
-                <p className="text-gray-300">{stat.label}</p>
+              <div className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-gray-400">
+                {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,135 +1,61 @@
-import { useState } from "react";
-import { MapPin, Bed, Bath, Maximize, Heart } from "lucide-react";
-
-const properties = [
-  {
-    id: 1,
-    image: "/images/hero-modern.jpg",
-    title: "Luxury 3 Bedroom Apartment",
-    location: "Victoria Island, Lagos",
-    price: "₦45,000,000",
-    beds: 3,
-    baths: 2,
-    size: "2,500 sqft",
-    type: "sale",
-  },
-  {
-    id: 2,
-    image: "/images/hero-master.jpg",
-    title: "Modern Studio Apartment",
-    location: "Maitama, Abuja",
-    price: "₦8,500,000",
-    beds: 1,
-    baths: 1,
-    size: "800 sqft",
-    type: "sale",
-  },
-  {
-    id: 3,
-    image: "/images/hero-home.png",
-    title: "Spacious 4 Bedroom Duplex",
-    location: "Ikeja, Lagos",
-    price: "₦2,500,000/mo",
-    beds: 4,
-    baths: 3,
-    size: "3,200 sqft",
-    type: "rent",
-  },
-  {
-    id: 4,
-    image: "/images/hero-modern.jpg",
-    title: "Cozy 2 Bedroom Flat",
-    location: "Port Harcourt",
-    price: "₦850,000/mo",
-    beds: 2,
-    baths: 1,
-    size: "1,200 sqft",
-    type: "rent",
-  },
-];
-
-const filters = ["All", "For Sale", "For Rent", "Shortlets"];
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { properties } from '../data';
+import PropertyCard from './PropertyCard';
+import { useAppStore } from '../store/useAppStore';
 
 export default function PropertiesSection() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const { location, category, mode } = useAppStore();
+
+  const filteredProperties = properties.filter((property) => {
+    const modeMatch = property.type === mode;
+    const locationMatch = location === 'All Locations' || property.location.includes(location.split(',')[0].trim());
+    const categoryMatch = category === 'All Types' || property.type.toLowerCase().includes(category.toLowerCase());
+    return modeMatch && locationMatch && categoryMatch;
+  });
 
   return (
-    <section className="py-16 bg-[#faf8f5]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a2b4a] mb-4 font-playfair">
-            Featured Properties
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover the best properties across Nigeria
-          </p>
-        </div>
+    <section id="properties" className="py-24 bg-[#f4f6f8] dark:bg-[#0a0a0f] transition-colors duration-500">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Block exactly matching Figma */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex-1 max-w-2xl"
+          >
+            <p className="text-[11px] font-bold text-[#64748b] dark:text-gray-400 uppercase tracking-widest mb-4">
+              Featured Listings
+            </p>
+            <h2 className="font-sans text-4xl lg:text-[42px] font-bold text-[#111827] dark:text-white leading-[1.2] mb-6">
+              Homes, rentals, and shortlets in<br />top Nigerian locations.
+            </h2>
+            <p className="text-[#64748b] dark:text-gray-400 font-medium text-[16px] max-w-xl leading-relaxed">
+              Explore buy, rent, and shortlet opportunities from verified agents with clearly labeled prices<br className="hidden sm:block" /> and key property details.
+            </p>
+          </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                activeFilter === filter
-                  ? "bg-[#c9a227] text-[#1a2b4a]"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
-            >
-              {filter}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="shrink-0"
+          >
+            <button className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 dark:border-white/20 text-[#111827] dark:text-white font-semibold text-sm hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+              View All Listings <ArrowRight className="w-4 h-4 ml-1 text-gray-500" />
             </button>
+          </motion.div>
+        </div>
+
+        {/* Grid Block */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(filteredProperties.length > 0 ? filteredProperties : properties.slice(0, 6)).map((property, index) => (
+            <PropertyCard key={property.id} property={property} index={index} />
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {properties.map((property) => (
-            <div
-              key={property.id}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="relative">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-48 object-cover"
-                />
-                <button className="absolute top-3 right-3 bg-white/90 p-2 rounded-full hover:bg-white transition-colors">
-                  <Heart className="w-5 h-5 text-gray-600 hover:text-red-500 transition-colors" />
-                </button>
-                <span className="absolute top-3 left-3 bg-[#c9a227] text-[#1a2b4a] px-3 py-1 rounded-full text-xs font-semibold">
-                  {property.type === "sale" ? "For Sale" : "For Rent"}
-                </span>
-              </div>
-
-              <div className="p-4">
-                <h3 className="font-semibold text-[#1a2b4a] mb-2 line-clamp-1">
-                  {property.title}
-                </h3>
-                <div className="flex items-center gap-1 text-gray-500 text-sm mb-3">
-                  <MapPin className="w-4 h-4" />
-                  {property.location}
-                </div>
-                <p className="text-xl font-bold text-[#c9a227] mb-4">
-                  {property.price}
-                </p>
-                <div className="flex items-center justify-between text-gray-600 text-sm border-t pt-4">
-                  <div className="flex items-center gap-1">
-                    <Bed className="w-4 h-4" />
-                    {property.beds} Beds
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Bath className="w-4 h-4" />
-                    {property.baths} Baths
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Maximize className="w-4 h-4" />
-                    {property.size}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
