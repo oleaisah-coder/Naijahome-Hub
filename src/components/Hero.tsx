@@ -61,7 +61,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative pt-32 sm:pt-40 lg:pt-48 pb-16 sm:pb-24 lg:pb-32 bg-[#f8fafc] dark:bg-[#0a0a0f] transition-colors duration-500">
+    <section id="hero" className="relative pt-44 sm:pt-52 lg:pt-60 pb-16 sm:pb-24 lg:pb-32 bg-[#f8fafc] dark:bg-[#0a0a0f] transition-colors duration-500">
       <div className="max-w-[1300px] mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Hero Text - Above image on desktop, below on mobile */}

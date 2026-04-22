@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2.5 group transition-colors shrink-0">
-            <img src="/images/LUXURY DWELLING ESTATES AND PROPERTY.png" alt="Naijahome Hub" className="h-20 w-auto object-contain rounded-[24px]" />
+            <img src="/images/luxury-dwelling-logo.png" alt="Naijahome Hub" className="h-20 w-auto object-contain rounded-[24px]" />
           </a>
 
           {/* Desktop Nav */}
