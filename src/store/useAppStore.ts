@@ -58,10 +58,15 @@ export const useAppStore = create<AppState>((set, get) => ({
   isMobileMenuOpen: false,
   toggleMobileMenu: () => set((state) => ({ isMobileMenuOpen: !state.isMobileMenuOpen })),
 
-  isDarkMode: localStorage.getItem('darkMode') === 'true',
+  isDarkMode: (function() {
+    const theme = localStorage.getItem('darkMode');
+    if (theme !== null) return theme === 'true';
+    return typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  })(),
   toggleDarkMode: () => set((state) => { 
     const newValue = !state.isDarkMode;
     localStorage.setItem('darkMode', String(newValue));
+    document.documentElement.classList.toggle('dark', newValue);
     return { isDarkMode: newValue };
   }),
 }));

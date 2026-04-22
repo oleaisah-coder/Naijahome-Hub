@@ -17,15 +17,6 @@ import Favorites from './pages/Favorites';
 export default function App() {
   const { isDarkMode, selectedProperty, setSelectedProperty } = useAppStore();
   const [currentPage, setCurrentPage] = useState<'home' | 'post-property' | 'favorites'>('home');
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
   useEffect(() => {
     const handleNavigation = () => {
       if (window.location.hash === '#post-property') {
@@ -42,7 +33,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900 bg-white dark:bg-[#0a0a0f] text-gray-900 dark:text-white transition-colors duration-500 ${isDarkMode ? 'dark' : ''}`}>
+    <div className="min-h-screen font-sans selection:bg-blue-100 selection:text-blue-900 bg-white dark:bg-[#0a0a0f] text-gray-900 dark:text-white transition-colors duration-300">
       <AnimatePresence>
         {selectedProperty && (
           <ListingDetail 

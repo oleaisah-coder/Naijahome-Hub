@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-royal-50: #f0f4ff;
   --color-royal-100: #e0e9ff;
@@ -48,7 +50,7 @@
 }
 
 html {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -58,14 +60,10 @@ body {
   background-color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ensure html transitions */
-html.dark {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
+/* Ensure html transitions and dark mode consistency */
 html.dark body {
   color: white;
   background-color: #0a0a0f;

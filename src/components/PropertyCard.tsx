@@ -61,7 +61,7 @@ export default function PropertyCard({ property, index }: Props) {
 
         {/* Location Pill */}
         <div className="absolute top-4 right-4 z-10">
-          <div className="px-3 py-1.5 bg-white/95 backdrop-blur-sm shadow-sm text-[#111827] text-[12px] font-bold rounded-lg flex items-center">
+          <div className="px-3 py-1.5 bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur-sm shadow-sm text-[#111827] dark:text-white text-[12px] font-bold rounded-lg flex items-center">
             {property.city}
           </div>
         </div>
@@ -71,15 +71,15 @@ export default function PropertyCard({ property, index }: Props) {
           <>
             <button 
               onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/95 backdrop-blur-sm shadow-sm rounded-full hover:bg-gray-100 transition-colors opacity-0 group-hover:opacity-100"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur-sm shadow-sm rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors opacity-0 group-hover:opacity-100"
             >
-              <ChevronLeft size={16} className="text-gray-600" />
+              <ChevronLeft size={16} className="text-gray-600 dark:text-white" />
             </button>
             <button 
               onClick={nextImage}
-              className="absolute right-14 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/95 backdrop-blur-sm shadow-sm rounded-full hover:bg-gray-100 transition-colors opacity-0 group-hover:opacity-100"
+              className="absolute right-14 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur-sm shadow-sm rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors opacity-0 group-hover:opacity-100"
             >
-              <ChevronRight size={16} className="text-gray-600" />
+              <ChevronRight size={16} className="text-gray-600 dark:text-white" />
             </button>
           </>
         )}
@@ -95,11 +95,11 @@ export default function PropertyCard({ property, index }: Props) {
         {/* Heart Button */}
         <button 
           onClick={toggleFavorite}
-          className="absolute bottom-4 right-4 z-10 p-2 bg-white/95 backdrop-blur-sm shadow-sm rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute bottom-4 right-4 z-10 p-2 bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur-sm shadow-sm rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
         >
           <Heart 
             size={18} 
-            className={isFav ? 'fill-red-500 text-red-500' : 'text-gray-600'} 
+            className={isFav ? 'fill-red-500 text-red-500' : 'text-gray-600 dark:text-gray-300'} 
           />
         </button>
       </div>

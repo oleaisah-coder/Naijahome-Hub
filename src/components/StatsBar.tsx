@@ -3,7 +3,7 @@ import { stats } from '../data';
 
 export default function StatsBar() {
   return (
-    <section className="py-12 sm:py-20 bg-gray-50/50 dark:bg-[#0a0a0f] transition-colors duration-500">
+    <section className="relative z-10 pt-8 pb-12 sm:pt-16 sm:pb-20 bg-gray-50/50 dark:bg-[#0a0a0f] transition-colors duration-500">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, index) => (

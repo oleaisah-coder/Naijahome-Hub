@@ -25,13 +25,13 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-12 sm:py-16 bg-white">
+    <section className="py-12 sm:py-16 bg-white dark:bg-[#0a0a0f] transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111827] mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111827] dark:text-white mb-3 sm:mb-4">
             Popular Categories
           </h2>
-          <p className="text-gray-500 sm:text-gray-600 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-gray-500 sm:text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             Browse properties by category
           </p>
         </div>
